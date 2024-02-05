@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VORTEX</title>
+    <link rel="shortcut icon" href="ark.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="main">
+        <div class="image-container">
+            <div class="image">
+                <img src="voice2.gif">
+            </div>
+            <h1>V O R T E X</h1>
+            <p>Hi, I'm a Virtual Assistant, How may i help you?</p>
+        </div>
+        <div class="input">
+            <button id="runScriptBtn" class="talk">
+                <img class="content" src="mic.gif">
+            </button>
+        </div>
+
+    
+    </section>
+
+    <script>
+    document.getElementById('runScriptBtn').addEventListener('click', function() {
+        console.log('Button clicked');
+        runPythonScript();
+    });
+    
+    function runPythonScript() {
+        console.log('Running Python script');
+        var xhr = new XMLHttpRequest();
+
+        var serverEndpoint = 'http://localhost:5000/run_script'; 
+        
+        
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    console.log('Python script executed successfully. Output:', response.output);
+                } else {
+                    console.error('Error executing Python script:', response.error);
+                }
+            } else {
+                console.error('XHR status:', xhr.status);
+            }
+        }
+    };
+    
+        xhr.open('GET', serverEndpoint, true);
+        
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        
+        xhr.send();
+    }
+    </script>
+</body>
+</html>

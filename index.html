@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VORTEX</title>
+    <link rel="shortcut icon" href="ark.jpg" type="image/x-icon">
+    <style>
+        body {
+            background: linear-gradient(to top, rgb(12, 12, 12) 30%, rgb(255, 255, 255) 40%), url('bg5.jpg') no-repeat center center fixed;
+            text-align: center;
+            background: url('bg5.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        main {
+            margin-left: 60px;
+            padding: 60px;
+            transition: margin-left 0.3s;
+        }
+        img {
+            width: 500px;
+            height: 500px;
+            margin-left: 10px;
+            margin-top: -80px;
+        }
+        p {
+            margin-top: -60px;
+            margin-left: -20px;
+            font-size: 60px;
+            font-family: "Roboto Mono", monospace;
+            color: rgb(0, 98, 255);
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #2ecc71;
+            color: aliceblue;
+            padding: 10px 50px;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px;
+            margin-left: -30px;
+        }
+        button.secondary {
+            background-color: #3498db;
+            margin-left: 30px;
+            margin-right: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <main>
+        <img src="eve2.png">
+        <p>V O R T E X</p>
+        <div class="button-container">
+        <button onclick="goToAnotherPage()">S T A R T</button>
+        <button class="secondary" onclick="goToAnotherPage1()">C O M M A N D S</button>
+    </main>
+    
+    <script>
+        function goToAnotherPage() {
+            window.location.href = "wlc.html";
+        }
+        function goToAnotherPage1() {
+            window.location.href = "command.html";
+        }
+    </script>
+</body>
+</html>
